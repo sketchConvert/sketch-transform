@@ -1,0 +1,37 @@
+{
+  "name": "sketch-transform",
+  "version": "1.0.0",
+  "description": "Transform sketch files to json and json to sketch files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "rm -rf dist/* && node index.js"
+  },
+  "dependencies": {
+    "fs-extra": "^8.1.0",
+    "glob": "^7.1.5",
+    "sketch-constructor": "^1.11.0",
+    "sketch-file": "^0.2.0",
+    "sketch2json": "^0.1.2",
+    "tmp": "^0.1.0",
+    "yazl": "^2.5.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "chalk": "^2.4.1",
+    "eslint": "^4.19.1",
+    "eslint-config-o2team": "^0.1.6",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-react": "^7.8.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pfan123/sketch-transform.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pfan123/sketch-transform/issues"
+  },
+  "homepage": "https://github.com/pfan123/sketch-transform#readme"
+}
