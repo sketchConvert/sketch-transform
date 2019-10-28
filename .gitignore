@@ -9,6 +9,10 @@
 # production
 /build
 
+# output
+/dist
+/output
+
 # misc
 .DS_Store
 .env.local

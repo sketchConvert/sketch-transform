@@ -73,9 +73,10 @@ settings.setLayerSettingForKey(layer, 'comment', 'Looking great 👏')
 
 - [ Render React components to Sketch](https://github.com/airbnb/react-sketchapp)
 
-
 - [sketch-file -- A Sketch file is a zip file containing a bunch of JSON files.](https://github.com/Lona/sketch-file)
 
 - [sketch2json -- Get a JSON output out of a buffer of Sketch v43+ data](https://github.com/xaviervia/sketch2json)
 
 - [sketch-constructor -- Read/write/manipulate Sketch files in Node without Sketch plugins](https://github.com/amzn/sketch-constructor)
+
+- [How we learned to read and write Sketch app data format](https://blog.avocode.com/how-we-learned-to-read-and-write-sketch-app-data-format-ecf711e19c47)

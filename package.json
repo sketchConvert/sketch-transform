@@ -5,15 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "ts": "node index.js",
     "start": "rm -rf dist/* && node index.js"
   },
   "dependencies": {
     "fs-extra": "^8.1.0",
     "glob": "^7.1.5",
+    "jszip": "^3.1.5",
+    "seedrandom": "^2.4.4",
     "sketch-constructor": "^1.11.0",
     "sketch2json": "^0.1.2",
     "tmp": "^0.1.0",
-    "yazl": "^2.5.1"
+    "unzip": "^0.1.11"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
@@ -21,7 +24,8 @@
     "eslint": "^4.19.1",
     "eslint-config-o2team": "^0.1.6",
     "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-react": "^7.8.2"
+    "eslint-plugin-react": "^7.8.2",
+    "prettier": "^1.18.2"
   },
   "repository": {
     "type": "git",

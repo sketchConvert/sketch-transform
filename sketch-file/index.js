@@ -1,7 +1,7 @@
 const fs = require('fs')
-const jszip = require('jszip')
+const JSZip = require('jszip')
 
-function readFile(filePath) {
+function readFile (filePath) {
   return new Promise((resolve, reject) => {
     fs.readFile(filePath, (err, res) => {
       if (err) {
@@ -13,7 +13,7 @@ function readFile(filePath) {
   })
 }
 
-function readAndParseFileInZip(zip, filePath) {
+function readAndParseFileInZip (zip, filePath) {
   return zip
     .file(filePath)
     .async('string')
@@ -22,13 +22,13 @@ function readAndParseFileInZip(zip, filePath) {
 
 module.exports.readSketchFile = async filePath => {
   const data = await readFile(filePath)
-  const zip = await jszip.loadAsync(data)
+  const zip = await JSZip.loadAsync(data)
 
   const pagesPromises = []
   zip
     .folder('pages')
     .forEach(relativePath =>
-      pagesPromises.push(readAndParseFileInZip(zip, `pages/${relativePath}`)),
+      pagesPromises.push(readAndParseFileInZip(zip, `pages/${relativePath}`))
     )
 
   const imagesPromises = []
@@ -40,8 +40,8 @@ module.exports.readSketchFile = async filePath => {
         .then(buffer => ({
           id: relativePath.replace('.png', ''),
           buffer,
-        })),
-    ),
+        }))
+    )
   )
 
   const [document, meta, user, pages, images] = await Promise.all([
@@ -49,7 +49,7 @@ module.exports.readSketchFile = async filePath => {
     readAndParseFileInZip(zip, 'meta.json'),
     readAndParseFileInZip(zip, 'user.json'),
     Promise.all(pagesPromises),
-    Promise.all(imagesPromises),
+    Promise.all(imagesPromises)
   ])
 
   return {
@@ -72,7 +72,7 @@ module.exports.createNewSketchFile = (documentId, pages, version) => {
     pages = [
       {
         id: require('./generateId')(),
-      },
+      }
     ]
   }
 
@@ -86,16 +86,18 @@ module.exports.createNewSketchFile = (documentId, pages, version) => {
 }
 
 module.exports.writeSketchFile = ({ document, meta, user, pages, images }, filePath) => {
-  const zip = new jszip()
+  const zip = new JSZip()
   pages.forEach(p => zip.file(`pages/${p.do_objectID}.json`, JSON.stringify(p)))
   document.pages = pages.map(page => ({
     _class: 'MSJSONFileReference',
     _ref_class: 'MSImmutablePage',
     _ref: `pages/${page.do_objectID}`,
   }))
+
   zip.file('document.json', JSON.stringify(document))
   zip.file('meta.json', JSON.stringify(meta))
   zip.file('user.json', JSON.stringify(user))
+
   Object.keys(images).forEach(id => zip.file(`images/${id}`, images[id]))
 
   return new Promise((resolve, reject) => {
