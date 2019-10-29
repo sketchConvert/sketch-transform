@@ -1,7 +1,39 @@
 # sketch-transform
 Transform sketch files to json and json to sketch files
 
-# Sketch File format
+## Usage
+
+```
+const { Sketch2json, readAndParseFileInSketch, sketchJsonToSketchFile } = require('./lib/index.js')
+const fs = require('fs')
+const fse = require('fs-extra')
+// Document Meta User Page Image Preview
+
+// Get a JSON output out of a buffer of Sketch v43+ data
+Sketch2json('./sketch-examples/test.sketch', {
+  single: true,
+  output: `${__dirname}/dist/`
+}).then(() => {
+  console.error('Sketch2json 解压 sketch file 完成！！')
+})
+
+
+// files to sketch files
+readAndParseFileInSketch('./output/')
+
+
+// json to sketch files
+const singleSketchJson = fse.readJsonSync('./test-json/single-sketch.json')
+const preview = fse.readFile('./test-json/preview.png')
+const images = [{
+  '38ca6125035f10996026c761d9779f85c8d1f99e.png': fse.readFile('./test-json/38ca6125035f10996026c761d9779f85c8d1f99e.png')
+}]
+const output = './single.sketch'
+sketchJsonToSketchFile({ sketchJson: singleSketchJson, preview, images }, output)
+
+```
+
+## Sketch File format
 
 Sketch documents are stored as ZIP archives containing JSON encoded data. The file format was originally [introduced in Sketch 43](https://sketchplugins.com/d/87-new-file-format-in-sketch-43) and allows for better third-party integration. Generate Sketch documents dynamically, read or modify them without opening them in Sketch.
 

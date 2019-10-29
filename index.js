@@ -21,7 +21,7 @@ const fse = require('fs-extra')
 const singleSketchJson = fse.readJsonSync('./test-json/single-sketch.json')
 const preview = fse.readFile('./test-json/preview.png')
 const images = [{
-  '38ca6125035f10996026c761d9779f85c8d1f99e': fse.readFile('./test-json/38ca6125035f10996026c761d9779f85c8d1f99e.png')
+  '38ca6125035f10996026c761d9779f85c8d1f99e.png': fse.readFile('./test-json/38ca6125035f10996026c761d9779f85c8d1f99e.png')
 }]
 const output = './single.sketch'
 sketchJsonToSketchFile({ sketchJson: singleSketchJson, preview, images }, output)
