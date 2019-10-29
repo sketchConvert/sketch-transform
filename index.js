@@ -1,6 +1,5 @@
 
 const { Sketch2json, readAndParseFileInSketch, sketchJsonToSketchFile } = require('./lib/index.js')
-const sketch2json = require('sketch2json')
 const fs = require('fs')
 const fse = require('fs-extra')
 // Document Meta User Page Image Preview
@@ -25,4 +24,4 @@ const images = [{
   '38ca6125035f10996026c761d9779f85c8d1f99e': fse.readFile('./test-json/38ca6125035f10996026c761d9779f85c8d1f99e.png')
 }]
 const output = './single.sketch'
-sketchJsonToSketchFile({ singleSketchJson, preview, images }, output)
+sketchJsonToSketchFile({ sketchJson: singleSketchJson, preview, images }, output)

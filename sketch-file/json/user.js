@@ -11,5 +11,5 @@ module.exports = pages =>
         zoomValue: 1,
       }
       return prev
-    }, {}),
+    }, {})
   )
