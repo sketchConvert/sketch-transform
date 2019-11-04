@@ -2,7 +2,7 @@
   "name": "sketch-transform",
   "version": "1.0.0",
   "description": "Transform sketch files to json and json to sketch files",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "ts": "node index.js",
