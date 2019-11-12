@@ -15,10 +15,11 @@
     "seedrandom": "^2.4.4",
     "sketch-constructor": "^1.11.0",
     "sketch2json": "^0.1.2",
-    "tmp": "^0.1.0",
     "unzip": "^0.1.11"
   },
   "devDependencies": {
+    "tmp": "^0.1.0",
+    "axios": "^0.19.0",
     "babel-eslint": "^10.0.1",
     "chalk": "^2.4.1",
     "eslint": "^4.19.1",
