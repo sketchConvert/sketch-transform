@@ -1,6 +1,6 @@
 {
   "name": "sketch-transform",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Transform sketch files to json and json to sketch files",
   "main": "lib/index.js",
   "scripts": {
