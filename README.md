@@ -75,6 +75,10 @@ The `images` folder contains all the bitmaps that are used in the document, at t
 
 Contains a preview image of the last page edited by the user. If the page’s size is less than 2048x2048 it will be stored at full size, otherwise it’ll be scaled to fit a 2048x2048 square.
 
+### **`text-previews` folder**
+
+Contains a text-previews.pdf file for all pages of a document, display missing font text style.
+
 ## Custom data
 
 To store data that is not part of the Sketch document structure a special field `userInfo` object can be set per document and layer.
